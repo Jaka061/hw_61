@@ -22,6 +22,12 @@ public class EmployeeDb {
         session.close();
         return employees;
     }
+    public  static Employee find (Integer id){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Employee employee = session.load(Employee.class, id);
+        session.close();
+        return employee;
+    }
     public static Employee update(Employee employee) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -32,13 +38,6 @@ public class EmployeeDb {
         session.getTransaction().commit();
         session.close();
         return e;
-
-    }
-    public  static Employee find (Integer id){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Employee employee = session.load(Employee.class, id);
-        session.close();
-        return employee;
     }
     public static void delete (Integer id){
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -51,7 +50,7 @@ public class EmployeeDb {
     public static void deleteAll(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        Query query = session.createQuery("DELETE FROM Employee");
+        Query query = session.createQuery("DELETE FROM org.example.entity.Employee");
         query.executeUpdate();
         session.getTransaction().commit();
         session.close();

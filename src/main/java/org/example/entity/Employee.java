@@ -1,9 +1,5 @@
 package org.example.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
@@ -13,10 +9,8 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-
     @Column(name = "name")
     private String name;
-
     @Column(name= "age")
     private Integer age;
 
@@ -26,26 +20,19 @@ public class Employee {
     }
     public Employee() {}
 
-    public Integer  getId() {
-        return id;
-    }
-
+    public Integer  getId() { return id; }
     public void setId(Integer id) {
         this.id = id;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public Integer getAge() {
         return age;
     }
-
     public void setAge(Integer age) {
         this.age = age;
     }
